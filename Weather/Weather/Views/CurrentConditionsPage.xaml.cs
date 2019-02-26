@@ -12,10 +12,19 @@ namespace Weather.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CurrentConditionsPage : ContentPage
 	{
+	    private CurrentConditionsViewModel viewModel;
 		public CurrentConditionsPage ()
 		{
 			InitializeComponent ();
-		    this.BindingContext = new CurrentConditionsViewModel();
+            viewModel = new CurrentConditionsViewModel();
+		    this.BindingContext = viewModel;
 		}
-	}
+
+	    protected override void OnAppearing()
+	    {
+	        base.OnAppearing();
+
+	        viewModel.GetCurrentConditionsCommand.Execute(null);
+	    }
+    }
 }

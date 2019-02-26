@@ -6,6 +6,11 @@ namespace Weather.Models
 {
     public class WeatherConditions : WeatherConditionsBase
     {
-        public new string Conditions => "Always sunny";
+
+        public WeatherConditions()
+        {
+            this.Conditions = "not so sunny after all";
+        }
+        //public new string Conditions => "Always sunny";
     }
 }
