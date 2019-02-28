@@ -28,6 +28,11 @@ namespace Weather.ViewModels
         private async Task GetCurrentConditions()
         {
             this.Conditions = await this.DataService.GetCurrentWeather(null);
+            
+            //// ----------------------------- testing:
+            var x = await this.DataService.GetForecastForDays(null, 19);
+
+            System.Console.WriteLine("x is " + x);
         }
     }
 }

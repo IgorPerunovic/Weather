@@ -22,8 +22,7 @@ namespace Weather.Services
             try
             {
                 var result = await httpClient.GetStringAsync(uri);
-                var weather = WeatherConditions.FromJson(result);
-                return await Task.FromResult(weather);
+                return await Task.FromResult(CoversionHelper.GetWeatherConditions(result));
             }
             catch (Exception e)
             {
@@ -41,9 +40,7 @@ namespace Weather.Services
             try
             {
                 var result = await httpClient.GetStringAsync(uri);
-                //convert to weather for each day instead of hour
-                //var weather = WeatherConditions.FromJson(result);
-                //return await Task.FromResult(weather);
+                return await Task.FromResult(Services.CoversionHelper.GetForecastForDays(result, days));
             }
             catch (Exception e)
             {
