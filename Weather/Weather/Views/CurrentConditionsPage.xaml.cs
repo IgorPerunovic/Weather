@@ -16,15 +16,12 @@ namespace Weather.Views
 		public CurrentConditionsPage ()
 		{
 			InitializeComponent ();
-            viewModel = new CurrentConditionsViewModel();
-		    this.BindingContext = viewModel;
 		}
 
 	    protected override void OnAppearing()
 	    {
 	        base.OnAppearing();
-
-	        viewModel.GetCurrentConditionsCommand.Execute(null);
+	        ((CurrentConditionsViewModel)this.BindingContext).GetCurrentConditionsCommand.Execute(null);
 	    }
     }
 }
