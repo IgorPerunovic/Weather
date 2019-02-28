@@ -33,14 +33,15 @@ namespace Weather.Services
 
         }
 
-        public async Task<IEnumerable<WeatherConditionsBase>> GetForecastForDays(Location location, int days)
+        public async Task<ForecastBase> GetForecastForDays(Location location, int days)
         {
             HttpClient httpClient = new HttpClient();
             var uri = BASE + FORECAST + "id=524901&APPID=" + APP_KEY;
             try
             {
                 var result = await httpClient.GetStringAsync(uri);
-                return await Task.FromResult(Services.CoversionHelper.GetForecastForDays(result, days));
+                var forecast = await Task.FromResult(Services.CoversionHelper.GetForecastForDays(result, days));
+                return forecast;
             }
             catch (Exception e)
             {

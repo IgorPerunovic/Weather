@@ -16,6 +16,9 @@ namespace Weather.Models
         [JsonProperty("weather")]
         private List<WeatherType> WeatherReports{ get; set; }
 
+        [JsonProperty("dt_txt")]
+        public new DateTime Date { get; set; }
+
         public new string ImgSource => WeatherReports[0]?.Icon;
         public new string Wind => "Speed: "+WindConditions.Speed + " Deg: "+ WindConditions.Deg;
         public new string Conditions => WeatherReports[0]?.Description;

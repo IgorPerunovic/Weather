@@ -9,6 +9,6 @@ namespace Weather.Services
     public interface IDataService<T>
     {
         Task<WeatherConditionsBase> GetCurrentWeather(T location);
-        Task<IEnumerable<WeatherConditionsBase>> GetForecastForDays(T location, int days);
+        Task<ForecastBase> GetForecastForDays(T location, int days);
     }
 }

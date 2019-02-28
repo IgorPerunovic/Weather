@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 
 namespace Weather.Models
 {
-    public class Forecast
+    public class Forecast : ForecastBase
     {
-        public List<WeatherConditionsBase> List { get; set; }
+        public new List<WeatherConditions> List { get; set; }
 
 
         public static Forecast FromJson(string json)

@@ -12,5 +12,6 @@ namespace Weather.Models
         public string ImgSource { get; set; } // the source for the icon representing the weather
         public string Wind { get; set; } // description of wind conditions 
         public string Humidity { get; set; } 
+        public DateTime Date { get; set; } // date this applies to
     }
 }
