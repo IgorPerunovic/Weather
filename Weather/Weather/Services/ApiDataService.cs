@@ -14,11 +14,21 @@ namespace Weather.Services
         private const string FORECAST = "forecast?";
         private const string CURRENT = "weather?";
 
-        //api.openweathermap.org/data/2.5/weather? zip = 94040, us
+        private const string UNIT_FORMAT = "&units=metric"; // ideally, this would be part of some preferences provider, 
+                                                           //but here it's hardcoded, didn't have time to make prefs
+
         public async Task<WeatherConditionsBase> GetCurrentWeather(Location location)
         {
+            if (location == null)
+            {
+                return null; // todo: implement error handling
+            }
+
+            string locationString = (string.IsNullOrEmpty(location.Id)) 
+                ? ("lat=" + location.Latitude + "&lon=" + location.Longitude)
+                : "id="+location.Id;
             HttpClient httpClient = new HttpClient();
-            var uri = BASE + CURRENT + "id=524901&APPID=" + APP_KEY;
+            var uri = BASE + CURRENT + locationString +UNIT_FORMAT+"&APPID=" + APP_KEY;
             try
             {
                 var result = await httpClient.GetStringAsync(uri);
@@ -35,8 +45,17 @@ namespace Weather.Services
 
         public async Task<ForecastBase> GetForecastForDays(Location location, int days)
         {
+            if (location == null)
+            {
+                return null; // todo: implement error handling
+            }
+
+            string locationString = (string.IsNullOrEmpty(location.Id))
+                ? ("lat=" + location.Latitude + "&lon=" + location.Longitude)
+                : "id=" + location.Id;
+
             HttpClient httpClient = new HttpClient();
-            var uri = BASE + FORECAST + "id=524901&APPID=" + APP_KEY;
+            var uri = BASE + FORECAST + locationString + UNIT_FORMAT + "&APPID=" + APP_KEY;
             try
             {
                 var result = await httpClient.GetStringAsync(uri);

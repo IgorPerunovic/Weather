@@ -15,6 +15,7 @@ namespace Weather.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
         public IDataService<Location> DataService => DependencyService.Get<IDataService<Location>>() ?? new ApiDataService();
 
+        public ILocationService LocationService => DependencyService.Get<ILocationService>() ?? new LocationService();
 
         bool isBusy = false;
         public bool IsBusy

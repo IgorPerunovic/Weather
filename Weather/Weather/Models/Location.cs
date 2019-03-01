@@ -8,6 +8,6 @@ namespace Weather.Models
     {
         public double Longitude;
         public double Latitude;
-        public string Name;
+        public string Id;
     }
 }

@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Weather.Models;
+using Weather.Services;
 using Xamarin.Forms;
 
 namespace Weather.ViewModels
 {
     public class CurrentConditionsViewModel : BaseViewModel
     {
+        #region WeatherConditions
         WeatherConditionsBase conditions;
         public WeatherConditionsBase Conditions
         {
             get => conditions;
             set => SetProperty(ref conditions, value);
         }
+        #endregion
+
 
 
         public Command GetCurrentConditionsCommand { get; set; }
@@ -22,12 +26,12 @@ namespace Weather.ViewModels
         {
             Title = "Current weather";
             GetCurrentConditionsCommand = new Command(async () => await GetCurrentConditions());
-
         }
 
         private async Task GetCurrentConditions()
         {
-            this.Conditions = await this.DataService.GetCurrentWeather(null);
+            var location = await LocationService.GetCurrentLocation();
+            this.Conditions = await this.DataService.GetCurrentWeather(location);
         }
     }
 }

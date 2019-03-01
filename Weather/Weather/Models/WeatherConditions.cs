@@ -23,8 +23,12 @@ namespace Weather.Models
         public new string Wind => "Speed: "+WindConditions.Speed + " Deg: "+ WindConditions.Deg;
         public new string Conditions => WeatherReports[0]?.Description;
         public new double Temperature => main.Temp;
+        public new double MinTemperature => main.MinTemp;
+        public new double MaxTemperature => main.MaxTemp;
+
         public new int Humidity => main.Humidity;
-        public double Pressure => main.Pressure;
+        public new string Pressure => main.Pressure.ToString();
+
         public static WeatherConditions FromJson(string json)
         {
             return JsonConvert.DeserializeObject<WeatherConditions>(json, Settings()); 

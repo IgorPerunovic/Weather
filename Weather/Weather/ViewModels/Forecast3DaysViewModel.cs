@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Weather.Models;
+using Weather.Services;
 using Xamarin.Forms;
 
 namespace Weather.ViewModels
@@ -27,7 +28,9 @@ namespace Weather.ViewModels
 
         private async Task Get3DaysForecast()
         {
-            this.Forecast = await this.DataService.GetForecastForDays(null, 3);
+            var location = await LocationService.GetCurrentLocation();
+            //this.Conditions = await this.DataService.GetCurrentWeather(location)
+            this.Forecast = await this.DataService.GetForecastForDays(location, 3);
             Console.WriteLine("forecast :" + forecast);
         }
     }
