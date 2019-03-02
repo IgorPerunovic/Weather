@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Weather.Views.CurrentConditionsView">
+  <ContentView.Content>
+      <StackLayout Orientation="Horizontal">
+          <StackLayout VerticalOptions="CenterAndExpand">
+              <Label Text="{Binding Conditions}" />
+              <Label Text="{Binding Temperature}" />
+              <Label Text="{Binding Humidity}" />
+              <Label Text="{Binding Wind}" />
+          </StackLayout>
+            <Image Source="{Binding WeatherCode, Converter={StaticResource WeatherIconConverter}}"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                   HeightRequest="50" WidthRequest="50" 
+                   Aspect="AspectFit"/>
+          <!---->
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

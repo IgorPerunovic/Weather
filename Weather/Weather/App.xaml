@@ -2,12 +2,15 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Weather.ViewModels;assembly=Weather"
+             xmlns:converters="clr-namespace:Weather.Converters;assembly=Weather"
              x:Class="Weather.App">
     <Application.Resources>
         <ResourceDictionary>
             <!--This is a neat trick that helps with XAML accessing properties from the ViewModels and using IDE autocomplete options-->
             <viewModels:ViewModelLocator x:Key="Locator" />
           
+            <converters:WeatherConditionsIconConverter x:Key="WeatherIconConverter"/>
+            
             <!--Global Styles-->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">

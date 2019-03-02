@@ -19,7 +19,7 @@ namespace Weather.Models
         [JsonProperty("dt_txt")]
         public new DateTime Date { get; set; }
 
-        public new string ImgSource => WeatherReports[0]?.Icon;
+        public new string WeatherCode => WeatherReports[0]?.Icon;
         public new string Wind => "Speed: "+WindConditions.Speed + " Deg: "+ WindConditions.Deg;
         public new string Conditions => WeatherReports[0]?.Description;
         public new double Temperature => main.Temp;
