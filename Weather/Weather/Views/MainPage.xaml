@@ -4,25 +4,14 @@
             xmlns:views="clr-namespace:Weather.Views"
             x:Class="Weather.Views.MainPage">
     <TabbedPage.Children>
-        <NavigationPage Title="3 Days">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:Forecast3Days/>
-            </x:Arguments>
-        </NavigationPage>
-        
         <NavigationPage Title="Current Conditions">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
             <x:Arguments>
                 <views:CurrentConditionsPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="3 Days">
+            <x:Arguments>
+                <views:Forecast3Days/>
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Weather.Views.ForecastListItemView">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="{Binding Date}"/>
+          <StackLayout Orientation="Horizontal">
+
+              <Image Source="{Binding WeatherCode, Converter={StaticResource WeatherIconConverter}}"
+                     HorizontalOptions="Start" VerticalOptions="CenterAndExpand" 
+                     HeightRequest="60" WidthRequest="60" 
+                     MinimumHeightRequest="60" MinimumWidthRequest="60" 
+                     Aspect="AspectFit"/>
+              <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding Conditions}" />
+              <!--Temperature might be displayed in other ways, depending on settings or region, but I didn't have time to make that-->
+                <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding MinTemperature, StringFormat='Temperature: {0}‎°C'}" />
+                
+                <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding MaxTemperature, StringFormat=' / {0}‎°C'}" />
+                
+
+
+
+            </StackLayout>
+          
+      </StackLayout>
+    </ContentView.Content>
+</ContentView>

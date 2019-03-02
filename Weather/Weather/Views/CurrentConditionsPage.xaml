@@ -7,6 +7,8 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
+            <!--In this instance, we don't really need a separate component for the view, as this is all the page has, but if 
+            we were to have other things, we'd stack them on the page as separate components-->
             <views:CurrentConditionsView VerticalOptions="FillAndExpand" 
                                          HorizontalOptions="FillAndExpand"
                                          WeatherConditions="{Binding Conditions}" />

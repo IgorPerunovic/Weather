@@ -4,17 +4,18 @@
              x:Class="Weather.Views.CurrentConditionsView">
   <ContentView.Content>
       <StackLayout Orientation="Horizontal">
-          <StackLayout VerticalOptions="CenterAndExpand">
-              <Label Text="{Binding Conditions}" />
-              <Label Text="{Binding Temperature}" />
-              <Label Text="{Binding Humidity}" />
-              <Label Text="{Binding Wind}" />
+          <StackLayout VerticalOptions="StartAndExpand">
+              <Label Style="{StaticResource CurrentConditionsLabelsStyle}" Text="{Binding Conditions}" />
+              <!--Temperature might be displayed in other ways, depending on settings or region, but I didn't have time to make that-->
+              <Label Style="{StaticResource CurrentConditionsLabelsStyle}" Text="{Binding Temperature, StringFormat='Temperature: {0}‎°C'}" />
+                <Label Style="{StaticResource CurrentConditionsLabelsStyle}" Text="{Binding Humidity, StringFormat='Humidity: \{0\}%'}" />
+              <Label Style="{StaticResource CurrentConditionsLabelsStyle}" Text="{Binding Wind, StringFormat='Wind: {0}'}" />
           </StackLayout>
             <Image Source="{Binding WeatherCode, Converter={StaticResource WeatherIconConverter}}"
-                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
-                   HeightRequest="50" WidthRequest="50" 
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" 
+                   HeightRequest="100" WidthRequest="100" 
+                   MinimumHeightRequest="100" MinimumWidthRequest="100" 
                    Aspect="AspectFit"/>
-          <!---->
         </StackLayout>
   </ContentView.Content>
 </ContentView>

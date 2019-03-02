@@ -13,10 +13,28 @@
             
             <!--Global Styles-->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
+
+            <Color x:Key="MainTextColor">#2156FF</Color>
+
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            
+            <Style TargetType="Label" x:Key="CurrentConditionsLabelsStyle">
+                <Setter Property="TextColor" Value="{StaticResource MainTextColor}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+
+            </Style>
+
+            <Style TargetType="Label" x:Key="ForecastLabelsStyle">
+                <Setter Property="TextColor" Value="{StaticResource MainTextColor}"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

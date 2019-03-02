@@ -20,8 +20,8 @@ namespace Weather.Models
         public new DateTime Date { get; set; }
 
         public new string WeatherCode => WeatherReports[0]?.Icon;
-        public new string Wind => "Speed: "+WindConditions.Speed + " Deg: "+ WindConditions.Deg;
-        public new string Conditions => WeatherReports[0]?.Description;
+        public new string Wind => WindConditions.Direction + ", " + WindConditions.Speed + "KPH"; //this could have been formatted more nicely, but this does the job
+        public new string Conditions => WeatherReports[0]?.Description.ToUpper();
         public new double Temperature => main.Temp;
         public new double MinTemperature => main.MinTemp;
         public new double MaxTemperature => main.MaxTemp;
@@ -29,6 +29,7 @@ namespace Weather.Models
         public new int Humidity => main.Humidity;
         public new string Pressure => main.Pressure.ToString();
 
+      
         public static WeatherConditions FromJson(string json)
         {
             return JsonConvert.DeserializeObject<WeatherConditions>(json, Settings()); 

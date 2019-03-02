@@ -21,7 +21,7 @@ namespace Weather.ViewModels
         public Command Get3DaysForecastCommand { get; set; }
         public Forecast3DaysViewModel()
         {
-            Title = "Current weather";
+            Title = "Next 3 Days";
             Get3DaysForecastCommand = new Command(async () => await Get3DaysForecast());
 
         }
