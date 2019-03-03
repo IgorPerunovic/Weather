@@ -12,7 +12,8 @@ namespace Weather.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+
+        // this dependency isn't really IOC and DI, but it was just the fastest way to implement it
         public IDataService<Location> DataService => DependencyService.Get<IDataService<Location>>() ?? new ApiDataService();
 
         public ILocationService LocationService => DependencyService.Get<ILocationService>() ?? new LocationService();

@@ -21,7 +21,7 @@ namespace Weather.Services
         {
             if (location == null)
             {
-                return null; // todo: implement error handling
+                return null;
             }
 
             string locationString = (string.IsNullOrEmpty(location.Id)) 
@@ -36,7 +36,7 @@ namespace Weather.Services
             }
             catch (Exception e)
             {
-                System.Console.Write(e.Message);
+                ErrorHandler.HandleGenericAPIError(e);
             }
 
             return null;
@@ -64,7 +64,7 @@ namespace Weather.Services
             }
             catch (Exception e)
             {
-                System.Console.Write(e.Message);
+                ErrorHandler.HandleGenericAPIError(e);
             }
 
             return null;

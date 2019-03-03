@@ -16,7 +16,7 @@
               <!--Temperature might be displayed in other ways, depending on settings or region, but I didn't have time to make that-->
                 <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding MinTemperature, StringFormat='Temp: {0}'}" />
                 
-                <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding MaxTemperature, StringFormat=' / {0}‎°C'}" />
+                <Label Style="{StaticResource ForecastLabelsStyle}" Text="{Binding MaxTemperature, StringFormat='/ {0}‎°C'}" />
                 
 
 
