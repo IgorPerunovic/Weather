@@ -7,9 +7,9 @@ namespace Weather.Models
 {
     public abstract class WeatherConditionsBase
     {
-        public double Temperature { get; set; } // degrees
-        public double MinTemperature { get; set; }
-        public double MaxTemperature { get; set; }
+        public int Temperature { get; set; } // degrees
+        public int MinTemperature { get; set; }
+        public int MaxTemperature { get; set; }
 
         public string Conditions { get; set; } // description
         public string WeatherCode { get; set; } // the source for the icon representing the weather

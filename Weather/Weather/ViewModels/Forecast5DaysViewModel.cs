@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Weather.ViewModels
 {
-    public class Forecast3DaysViewModel : BaseViewModel
+    public class Forecast5DaysViewModel : BaseViewModel
     {
         #region ForecastBase Forecast
         ForecastBase forecast;
@@ -16,20 +16,18 @@ namespace Weather.ViewModels
         #endregion
 
         #region GetForecastCommand
-        public Command Get3DaysForecastCommand { get; set; }
-
-        private async Task Get3DaysForecast()
+        public Command Get5DaysForecastCommand { get; set; }
+        private async Task Get5DaysForecast()
         {
             var location = await LocationService.GetCurrentLocation();
-            this.Forecast = await this.DataService.GetForecastForDays(location, 3);
+            this.Forecast = await this.DataService.GetForecastForDays(location, 5);
         }
         #endregion
 
-        public Forecast3DaysViewModel()
+        public Forecast5DaysViewModel()
         {
-            Title = "Next 3 Days";
-            Get3DaysForecastCommand = new Command(async () => await Get3DaysForecast());
-
+            Title = "Next 5 Days";
+            Get5DaysForecastCommand = new Command(async () => await Get5DaysForecast());
         }
     }
 }

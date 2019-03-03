@@ -16,6 +16,7 @@ namespace Weather.ViewModels
 
         public CurrentConditionsViewModel CurrentConditions => ViewModel<CurrentConditionsViewModel>.Get();
         public Forecast3DaysViewModel Forecast3Days => ViewModel<Forecast3DaysViewModel>.Get();
+        public Forecast5DaysViewModel Forecast5Days => ViewModel<Forecast5DaysViewModel>.Get();
 
         public static void Cleanup()
         {

@@ -22,9 +22,9 @@ namespace Weather.Models
         public new string WeatherCode => WeatherReports[0]?.Icon;
         public new string Wind => WindConditions.Direction + ", " + WindConditions.Speed + "KPH"; //this could have been formatted more nicely, but this does the job
         public new string Conditions => WeatherReports[0]?.Description.ToUpper();
-        public new double Temperature => main.Temp;
-        public new double MinTemperature => main.MinTemp;
-        public new double MaxTemperature => main.MaxTemp;
+        public new int Temperature => (int)Math.Round(main.Temp);
+        public new int MinTemperature => (int)Math.Round(main.MinTemp);
+        public new int MaxTemperature => (int)Math.Round(main.MaxTemp);
 
         public new int Humidity => main.Humidity;
         public new string Pressure => main.Pressure.ToString();

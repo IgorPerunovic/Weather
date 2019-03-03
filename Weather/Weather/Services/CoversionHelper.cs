@@ -18,8 +18,8 @@ namespace Weather.Services
            var fullForecast = Forecast.FromJson(json);
             var list = new List<WeatherConditions>();
             foreach (var element in fullForecast.List) // filtering the multiple forecasts per day (every few hours) into one per day
-                //this could have been done better, but I frankly didn't have enough time to filter and compare all temperatures etc, and it's just a demo
-            //we're removing the duplicate dates and not adding beyond the required number of days (the API returns more than needed)
+                // this could have been done better, but I frankly didn't have enough time to filter and compare all temperatures etc, and it's just a demo
+            //we're removing the duplicate dates and not adding beyond the required number of days (the API can return more than needed)
             {
                 if (!list.Any(e => e.Date.Date.Equals(element.Date.Date)) && !(list.Count>=days))
                 {

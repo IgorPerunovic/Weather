@@ -14,5 +14,10 @@
                 <views:Forecast3Days/>
             </x:Arguments>
         </NavigationPage>
+        <NavigationPage Title="5 Days">
+            <x:Arguments>
+                <views:Forecast5Days/>
+            </x:Arguments>
+        </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>
