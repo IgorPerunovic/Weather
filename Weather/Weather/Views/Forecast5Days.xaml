@@ -7,7 +7,7 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding Forecast.List}" IsEnabled="False" RowHeight="100">
+            <ListView x:Name="ForecastList" ItemsSource="{Binding Forecast.List}" ItemSelected="ListView_OnItemSelected" RowHeight="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
