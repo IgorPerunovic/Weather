@@ -9,7 +9,8 @@ namespace Weather.Services
     public class ToastService : IToastService
     {
         
-        public void ShowMessage(string message, double time)
+        public void ShowMessage(string message, double time) // ideally, in a bigger app there would be different messages for various needs,
+                                                             // but in this instance we just needed this for error messages.
         {
 
             var toastConfig = new ToastConfig(message)

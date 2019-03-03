@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Weather.Models
+﻿namespace Weather.Models
 {
     public class Location
     {

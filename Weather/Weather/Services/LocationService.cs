@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using CommonServiceLocator;
 using Plugin.Geolocator;
 using Weather.Models;
 
@@ -32,7 +29,6 @@ namespace Weather.Services
         {
             if (!CrossGeolocator.IsSupported)
                 return false;
-
             return CrossGeolocator.Current.IsGeolocationAvailable;
         }
     }

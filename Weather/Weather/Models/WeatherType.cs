@@ -7,11 +7,8 @@ namespace Weather.Models
 {
     public class WeatherType
     {
-        //[JsonProperty("description")]
         public string Description { get; set; }
 
-        //[JsonProperty("icon")]
         public string Icon { get; set; }
-
     }
 }

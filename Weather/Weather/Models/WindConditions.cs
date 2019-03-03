@@ -13,7 +13,7 @@ namespace Weather.Models
         
         private string ConvertWindDirection(double deg) 
             // this might be done in a separate converter, or here, depending on need.
-            // In this instance, I chose here, just for simplicity, and to avoid coupling classes unnecessarily (this does the job well)
+            // In this instance, I chose here, just for simplicity, as this is the only way this class will ever be used...
         {
             if (deg < 11.25) return "N";
             if (deg < 33.75) return "NNE";

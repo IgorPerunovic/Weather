@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Weather.Models;
 
 namespace Weather.Services
@@ -19,6 +17,7 @@ namespace Weather.Services
             var list = new List<WeatherConditions>();
             foreach (var element in fullForecast.List) // filtering the multiple forecasts per day (every few hours) into one per day
                 // this could have been done better, but I frankly didn't have enough time to filter and compare all temperatures etc, and it's just a demo
+                // at best, I could find the most often seen conditions for each day and find the min/max temperatures with a while loop
             //we're removing the duplicate dates and not adding beyond the required number of days (the API can return more than needed)
             {
                 if (!list.Any(e => e.Date.Date.Equals(element.Date.Date)) && !(list.Count>=days))

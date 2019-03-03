@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,16 @@ namespace Weather.Services
             string locationString = (string.IsNullOrEmpty(location.Id)) 
                 ? ("lat=" + location.Latitude + "&lon=" + location.Longitude)
                 : "id="+location.Id;
+
+            var requestUri = string.Format(
+                CultureInfo.InvariantCulture,
+                "{0}{1}{2}{3}&APPID={4}",
+                BASE, CURRENT, locationString, UNIT_FORMAT, APP_KEY);
+
             HttpClient httpClient = new HttpClient();
-            var uri = BASE + CURRENT + locationString +UNIT_FORMAT+"&APPID=" + APP_KEY;
             try
             {
-                var result = await httpClient.GetStringAsync(uri);
+                var result = await httpClient.GetStringAsync(requestUri);
                 return await Task.FromResult(CoversionHelper.GetWeatherConditions(result));
             }
             catch (Exception e)
@@ -47,18 +53,20 @@ namespace Weather.Services
         {
             if (location == null)
             {
-                return null; // todo: implement error handling
+                return null;
             }
 
             string locationString = (string.IsNullOrEmpty(location.Id))
                 ? ("lat=" + location.Latitude + "&lon=" + location.Longitude)
                 : "id=" + location.Id;
-
+            var requestUri = string.Format(
+                CultureInfo.InvariantCulture,
+                "{0}{1}{2}{3}&APPID={4}",
+                BASE, FORECAST, locationString, UNIT_FORMAT, APP_KEY);
             HttpClient httpClient = new HttpClient();
-            var uri = BASE + FORECAST + locationString + UNIT_FORMAT + "&APPID=" + APP_KEY;
             try
             {
-                var result = await httpClient.GetStringAsync(uri);
+                var result = await httpClient.GetStringAsync(requestUri);
                 var forecast = await Task.FromResult(Services.CoversionHelper.GetForecastForDays(result, days));
                 return forecast;
             }
